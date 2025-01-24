@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@ToString
 
 @Setter
 @Getter
+@ToString
 public class ProductDto {
     private String title;
     private double price;

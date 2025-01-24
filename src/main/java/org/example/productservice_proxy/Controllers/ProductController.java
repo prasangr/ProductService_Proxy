@@ -2,7 +2,6 @@ package org.example.productservice_proxy.Controllers;
 
 
 import org.example.productservice_proxy.dto.ProductDto;
-import org.example.productservice_proxy.models.Product;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -21,8 +20,17 @@ public class ProductController {
         return "All products";
     }
 
-
     @PostMapping()
-    public String addNewProduct(@RequestBody ProductDto product) {}
+    public String addNewProduct(@RequestBody ProductDto productDto) {
+        return "add new product"+productDto;
+    }
 
+    @PutMapping("/{productId}")
+public String updateProduct(@PathVariable("productId") Long productId) {
+        return "update product"+productId;
+    }
+    @DeleteMapping("/{productId}")
+    public String deleteProduct(@PathVariable("productId") Long productId) {
+        return "delete product with id "+productId;
+    }
 }
