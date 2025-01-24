@@ -1,15 +1,19 @@
-package org.example.productservice_proxy.models;
+package org.example.productservice_proxy.dto;
 
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-@Getter
+@ToString
+
 @Setter
-public class Product extends BaseModel{
+@Getter
+public class ProductDto {
     private String title;
     private double price;
     private String description;
-    private Categories category;
+    private String category;
     private String imageUrl;
+
 }
