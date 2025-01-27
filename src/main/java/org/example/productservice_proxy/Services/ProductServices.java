@@ -1,6 +1,8 @@
 package org.example.productservice_proxy.Services;
 
 import org.example.productservice_proxy.dto.ProductDto;
+import org.example.productservice_proxy.models.Categories;
+import org.example.productservice_proxy.models.Product;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -18,15 +20,30 @@ public String GetAllProduct(){
     return null;
 }
 @Override
-public String GetSingleProduct(Long id){
-    RestTemplate restTemplate = restTemplateBuilder.build();
-    ProductDto productDto = restTemplate.getForEntity("http://fakestoreapi.com/products/{id}", ProductDto.class, id).getBody();
-    return productDto != null ? productDto.toString() : "Product not found";
+public Product GetSingleProduct(Long id){
+        RestTemplate restTemplate = restTemplateBuilder.build();
+        ProductDto productDto =
+                restTemplate.getForEntity("https://fakestoreapi.com/products/{id}",
+                        ProductDto.class, id).getBody();
+        Product product = getProduct(productDto);
+        return product;
 }
 
+    private Product getProduct(ProductDto productDto) {
+        Product product = new Product();
+        product.setId(productDto.getId());
+        product.setTitle(productDto.getTitle());
+        product.setPrice(productDto.getPrice());
+        Categories category = new Categories();
+        category.setName(productDto.getCategory());
+        product.setCategory(category);
+        product.setImage(productDto.getImage());
+        product.setDescription(productDto.getDescription());
+        return product;
+    }
 
 
-@Override
+    @Override
 public String AddNewProduct(){
     return null;
 }
