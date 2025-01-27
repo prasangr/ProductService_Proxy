@@ -3,7 +3,7 @@ package org.example.productservice_proxy.Services;
 public interface iProductServices {
     String GetAllProduct();
 
-    String GetSingleProduct();
+    String GetSingleProduct(Long id);
 
     String AddNewProduct();
 

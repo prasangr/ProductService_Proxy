@@ -1,6 +1,7 @@
 package org.example.productservice_proxy.Controllers;
 
 
+import org.example.productservice_proxy.Services.iProductServices;
 import org.example.productservice_proxy.dto.ProductDto;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,10 +10,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+    iProductServices productServices;
+    public ProductController(iProductServices productServices) {
+        this.productServices = productServices;
+    }
 
     @GetMapping("/{id}")
     public String getSingleProduct(@PathVariable("id") Long id) {
-        return "Single product with product id: " + id;
+    String product = productServices.GetSingleProduct(id);
+
+        return "Single product with product id: " + product;
     }
 
     @GetMapping("/")
