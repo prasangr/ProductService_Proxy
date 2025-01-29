@@ -18,6 +18,6 @@ public class ProductDto {
     private String category;
     private String image;
     private RatingDto rating;
-    private Categories categories;
+    private String categories;
 
 }
