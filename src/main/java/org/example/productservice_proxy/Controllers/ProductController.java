@@ -2,6 +2,7 @@ package org.example.productservice_proxy.Controllers;
 
 
 import org.example.productservice_proxy.Services.iProductServices;
+import org.example.productservice_proxy.client.IClientProductDto;
 import org.example.productservice_proxy.dto.ProductDto;
 import org.example.productservice_proxy.models.Product;
 import org.springframework.http.HttpStatus;
@@ -56,8 +57,8 @@ public class ProductController {
     }
 
     @PostMapping()
-    public ResponseEntity<Product> addNewProduct(@RequestBody ProductDto productDto) {
-        Product product= this .productServices.AddNewProduct(productDto);
+    public ResponseEntity<Product> addNewProduct(@RequestBody IClientProductDto productDto) {
+        Product product = this.productServices.AddNewProduct(  productDto);
         ResponseEntity<Product> responseEntity =new ResponseEntity<>(product, HttpStatus.OK);
 
         return responseEntity;
