@@ -13,7 +13,7 @@ public interface iProductServices {
 
     Product AddNewProduct(IClientProductDto productDto);
 
-    String UpdateProduct();
+    Product UpdateProduct(Long productId, Product product);
 
-    String DeleteProduct();
+    String DeleteProduct(Long id);
 }
