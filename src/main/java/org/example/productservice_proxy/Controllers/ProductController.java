@@ -58,14 +58,27 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    //POST , Url : /products/
-    @PostMapping()
+    //POST , Url : /products/    // for fakestoreproductServices
+    /*@PostMapping()
     public ResponseEntity<Product> addNewProduct(@RequestBody IClientProductDto productDto) {
         Product product = this.productServices.AddNewProduct(productDto);
         ResponseEntity<Product> responseEntity = new ResponseEntity<>(product, HttpStatus.OK);
 
         return responseEntity;
+    }*/
+
+    //POST , Url : /products/    // for selfproductServices
+    @PostMapping()
+    public ResponseEntity<Product> addNewProduct(@RequestBody ProductDto productDto) {
+        Product product = getProduct(productDto);
+        Product product1 = this.productServices.AddNewProduct(product);
+        ResponseEntity<Product> responseEntity = new ResponseEntity<>(product1, HttpStatus.OK);
+
+        return responseEntity;
     }
+
+
+
 
     //PUT , Url : /products/{productId}
     @PatchMapping("/{productId}")
@@ -86,4 +99,19 @@ public class ProductController {
     public String deleteProduct(@PathVariable("productId") Long productId) {
         return this.productServices.DeleteProduct(productId);
     }
+
+    public Product getProduct(ProductDto productDto) {
+        Product product = new Product();
+        product.setId(productDto.getId());
+        product.setTitle(productDto.getTitle());
+        product.setPrice(productDto.getPrice());
+        product.setDescription(productDto.getDescription());
+        product.setCategory(new Categories());
+        product.getCategory().setName(productDto.getCategory());
+        product.setImageUrl(productDto.getImage());
+        return product;
+    }
+
+
+
 }

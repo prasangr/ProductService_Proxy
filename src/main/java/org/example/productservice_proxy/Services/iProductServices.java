@@ -11,7 +11,7 @@ public interface iProductServices {
 
     Product GetSingleProduct(Long id);
 
-    Product AddNewProduct(IClientProductDto productDto);
+    Product AddNewProduct(Product productDto);
 
     Product UpdateProduct(Long productId, Product product);
 

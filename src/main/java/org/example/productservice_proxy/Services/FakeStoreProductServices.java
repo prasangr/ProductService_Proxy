@@ -20,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+//@Service
 public class FakeStoreProductServices implements iProductServices {
 
     private final FakeStoreClient fakeStoreClient;
@@ -49,7 +49,7 @@ public class FakeStoreProductServices implements iProductServices {
                 Categories category = new Categories();
                 category.setName(productDto.getCategory());
                 product.setCategory(category);
-                product.setImage(productDto.getImage());
+                product.setImageUrl(productDto.getImage());
                 answers.add(product);
         }
         return answers;
@@ -69,24 +69,28 @@ public class FakeStoreProductServices implements iProductServices {
     }
 
     @Override
+    public Product AddNewProduct(Product productDto) {
+        return null;
+    }
+
+  /*  @Override
     public Product AddNewProduct(IClientProductDto productDto) {
-        /*RestTemplate restTemplate = restTemplateBuilder.build();
-        restTemplate.postForEntity("https://fakestoreapi.com/products",productDto, ProductDto.class);*/
+        *//*RestTemplate restTemplate = restTemplateBuilder.build();
+        restTemplate.postForEntity("https://fakestoreapi.com/products",productDto, ProductDto.class);*//*
         // the above code should be provided by the client, hence calling the client method here.
 
 
-       /* FakeStoreProductDto fakeStoreProductDto = fakeStoreClient.addNewProduct( productDto);
+       *//* FakeStoreProductDto fakeStoreProductDto = fakeStoreClient.addNewProduct( productDto);
         //save to db
         Product product = getProduct((FakeStoreProductDto)productDto);
-        return product;*/
+        return product;*//*
 
         RestTemplate restTemplate = restTemplateBuilder.build();
         restTemplate.postForEntity("https://fakestoreapi.com/products",productDto, ProductDto.class);
         Product product = getProduct((FakeStoreProductDto) productDto);
         return product;
+    }*/
 
-
-    }
 
 
     @Override
@@ -94,7 +98,7 @@ public class FakeStoreProductServices implements iProductServices {
         FakeStoreProductDto fakeStoreProductDto = new FakeStoreProductDto();
         fakeStoreProductDto.setDescription(product.getDescription());
         fakeStoreProductDto.setCategory(product.getCategory().getName());
-        fakeStoreProductDto.setImage(product.getImage());
+        fakeStoreProductDto.setImage(product.getImageUrl());
         fakeStoreProductDto.setPrice(product.getPrice());
         fakeStoreProductDto.setTitle(product.getTitle());
 
@@ -139,7 +143,7 @@ public class FakeStoreProductServices implements iProductServices {
         Categories category = new Categories();
         category.setName(productDto.getCategory());
         product.setCategory(category);
-        product.setImage(productDto.getImage());
+        product.setImageUrl(productDto.getImage());
         product.setDescription(productDto.getDescription());
         return product;
     }
