@@ -52,7 +52,7 @@ class ProductRepoTest {
        Categories categories1= categoryRepo.findById(1L);
 
 
-        Product product = productRepo.findByPriceBetween(1000, 1012);
+     //   Product product = productRepo.findByPriceBetween(1000, 1012);
         System.out.println("Debug");
     }
 }

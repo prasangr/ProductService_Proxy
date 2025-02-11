@@ -1,3 +1,4 @@
+/*
 package org.example.productservice_proxy.Services;
 
 
@@ -33,10 +34,12 @@ public class FakeStoreProductServices implements iProductServices {
 
     @Override
     public List<Product> GetAllProduct() {
-       /* RestTemplate restTemplate = restTemplateBuilder.build();
+       */
+/* RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<ProductDto[]> productDtos =
                 restTemplate.getForEntity("https://fakestoreapi.com/products", ProductDto[].class);
-*/
+*//*
+
         // the above code should be provided by the client, hence calling the client method here.
 
         List<FakeStoreProductDto> fakeStoreProductDtos =  fakeStoreClient.getAllProducts();
@@ -58,10 +61,12 @@ public class FakeStoreProductServices implements iProductServices {
 
     @Override
     public Product GetSingleProduct(Long id) {
-      /*  RestTemplate restTemplate = restTemplateBuilder.build();
+      */
+/*  RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<FakeStoreProductDto> productDto =
                 restTemplate.getForEntity("https://fakestoreapi.com/products/{id}",
-                        FakeStoreProductDto.class, id);*/
+                        FakeStoreProductDto.class, id);*//*
+
         // the above code should be provided by the client, hence calling the client method here.
         FakeStoreProductDto productDto = fakeStoreClient.getSingleProduct(id);
         Product product = getProduct(productDto);
@@ -73,23 +78,33 @@ public class FakeStoreProductServices implements iProductServices {
         return null;
     }
 
-  /*  @Override
+  */
+/*  @Override
     public Product AddNewProduct(IClientProductDto productDto) {
-        *//*RestTemplate restTemplate = restTemplateBuilder.build();
+        *//*
+*/
+/*RestTemplate restTemplate = restTemplateBuilder.build();
         restTemplate.postForEntity("https://fakestoreapi.com/products",productDto, ProductDto.class);*//*
+*/
+/*
         // the above code should be provided by the client, hence calling the client method here.
 
 
-       *//* FakeStoreProductDto fakeStoreProductDto = fakeStoreClient.addNewProduct( productDto);
+       *//*
+*/
+/* FakeStoreProductDto fakeStoreProductDto = fakeStoreClient.addNewProduct( productDto);
         //save to db
         Product product = getProduct((FakeStoreProductDto)productDto);
         return product;*//*
+*/
+/*
 
         RestTemplate restTemplate = restTemplateBuilder.build();
         restTemplate.postForEntity("https://fakestoreapi.com/products",productDto, ProductDto.class);
         Product product = getProduct((FakeStoreProductDto) productDto);
         return product;
-    }*/
+    }*//*
+
 
 
 
@@ -149,3 +164,4 @@ public class FakeStoreProductServices implements iProductServices {
     }
 
 }
+*/

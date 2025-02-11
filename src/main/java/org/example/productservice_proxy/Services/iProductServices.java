@@ -11,9 +11,13 @@ public interface iProductServices {
 
     Product GetSingleProduct(Long id);
 
+    List<Product> GetProductByLimit(int limit);
+
+    List<Product> GetAllProductsInDescOrder();
+
     Product AddNewProduct(Product productDto);
 
     Product UpdateProduct(Long productId, Product product);
 
-    String DeleteProduct(Long id);
+    Product DeleteProduct(Long id);
 }
