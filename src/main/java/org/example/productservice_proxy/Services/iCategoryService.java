@@ -10,9 +10,4 @@ public interface  iCategoryService {
     List<Product> GetProductsByCategory(String categoryname);
 
 
-
-
-
-
-
 }
