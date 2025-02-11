@@ -43,4 +43,16 @@ class ProductRepoTest {
         List<Product> productList = categories1.getProductList();*/
 
     }
+
+    @Test
+    @Transactional
+  //  @Rollback(value = false)
+    void savePorductsAndsCategories1() {
+        Categories categories = new Categories();
+       Categories categories1= categoryRepo.findById(1L);
+
+
+        Product product = productRepo.findByPriceBetween(1000, 1012);
+        System.out.println("Debug");
+    }
 }
