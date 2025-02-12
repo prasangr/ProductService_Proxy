@@ -41,7 +41,8 @@ public class SelfProductService implements iProductServices {
     }
 
     @Override
-    public Product UpdateProduct(Long productId, Product product) {
+    public Product UpdateProduct( Product product)
+    {
         return productRepo.save(product);
     }
 

@@ -105,7 +105,7 @@ public class ProductController {
         product.setDescription(productDto.getDescription());
         product.setCategory(new Categories());
         product.getCategory().setName(productDto.getCategory());
-        return this.productServices.UpdateProduct(productId, product);
+        return this.productServices.UpdateProduct( product);
 
     }
 

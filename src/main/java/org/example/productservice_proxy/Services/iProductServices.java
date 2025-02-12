@@ -17,7 +17,7 @@ public interface iProductServices {
 
     Product AddNewProduct(Product productDto);
 
-    Product UpdateProduct(Long productId, Product product);
+    Product UpdateProduct( Product product);
 
     Product DeleteProduct(Long id);
 }
