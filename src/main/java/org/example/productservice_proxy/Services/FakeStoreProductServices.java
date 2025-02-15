@@ -1,4 +1,3 @@
-/*
 package org.example.productservice_proxy.Services;
 
 
@@ -13,7 +12,6 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RequestCallback;
 import org.springframework.web.client.ResponseExtractor;
 import org.springframework.web.client.RestClientException;
@@ -34,11 +32,10 @@ public class FakeStoreProductServices implements iProductServices {
 
     @Override
     public List<Product> GetAllProduct() {
-       */
-/* RestTemplate restTemplate = restTemplateBuilder.build();
+ RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<ProductDto[]> productDtos =
                 restTemplate.getForEntity("https://fakestoreapi.com/products", ProductDto[].class);
-*//*
+
 
         // the above code should be provided by the client, hence calling the client method here.
 
@@ -61,11 +58,10 @@ public class FakeStoreProductServices implements iProductServices {
 
     @Override
     public Product GetSingleProduct(Long id) {
-      */
-/*  RestTemplate restTemplate = restTemplateBuilder.build();
+        /*RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<FakeStoreProductDto> productDto =
-                restTemplate.getForEntity("https://fakestoreapi.com/products/{id}",
-                        FakeStoreProductDto.class, id);*//*
+        restTemplate.getForEntity("https://fakestoreapi.com/products/{id}",
+        FakeStoreProductDto.class, id);*/
 
         // the above code should be provided by the client, hence calling the client method here.
         FakeStoreProductDto productDto = fakeStoreClient.getSingleProduct(id);
@@ -74,41 +70,50 @@ public class FakeStoreProductServices implements iProductServices {
     }
 
     @Override
+    public List<Product> GetProductByLimit(int limit) {
+        return List.of();
+    }
+
+    @Override
+    public List<Product> GetAllProductsInDescOrder() {
+        return List.of();
+    }
+
+    @Override
     public Product AddNewProduct(Product productDto) {
         return null;
     }
 
-  */
-/*  @Override
+    @Override
+    public Product UpdateProduct(Product product) {
+        return null;
+    }
+
+
+
+
     public Product AddNewProduct(IClientProductDto productDto) {
-        *//*
-*/
-/*RestTemplate restTemplate = restTemplateBuilder.build();
-        restTemplate.postForEntity("https://fakestoreapi.com/products",productDto, ProductDto.class);*//*
-*/
-/*
+        RestTemplate restTemplate = restTemplateBuilder.build();
+        restTemplate.postForEntity("https://fakestoreapi.com/products",productDto, ProductDto.class);
         // the above code should be provided by the client, hence calling the client method here.
 
 
-       *//*
-*/
-/* FakeStoreProductDto fakeStoreProductDto = fakeStoreClient.addNewProduct( productDto);
+
+        FakeStoreProductDto fakeStoreProductDto = fakeStoreClient.addNewProduct( productDto);
         //save to db
         Product product = getProduct((FakeStoreProductDto)productDto);
-        return product;*//*
-*/
-/*
+        return product;
 
-        RestTemplate restTemplate = restTemplateBuilder.build();
+        /*RestTemplate restTemplate = restTemplateBuilder.build();
         restTemplate.postForEntity("https://fakestoreapi.com/products",productDto, ProductDto.class);
         Product product = getProduct((FakeStoreProductDto) productDto);
-        return product;
-    }*//*
+        return product;*/
+    }
 
 
 
 
-    @Override
+
     public Product  UpdateProduct(Long productId, Product product) {
         FakeStoreProductDto fakeStoreProductDto = new FakeStoreProductDto();
         fakeStoreProductDto.setDescription(product.getDescription());
@@ -142,10 +147,11 @@ public class FakeStoreProductServices implements iProductServices {
 
 
     @Override
-    public String DeleteProduct(Long id) {
-        RestTemplate restTemplate = restTemplateBuilder.build();
+    public Product DeleteProduct(Long id) {
+        /*RestTemplate restTemplate = restTemplateBuilder.build();
         restTemplate.delete("https://fakestoreapi.com/products/{id}", id);
-        return "Product has been deleted";
+        return "Product has been deleted";*/
+        return null;
     }
 
 
@@ -164,4 +170,3 @@ public class FakeStoreProductServices implements iProductServices {
     }
 
 }
-*/
