@@ -20,9 +20,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
     @Autowired
     iProductServices productServices;
-
 
     // GET , Url : /products/                   getAllProducts
     @GetMapping("/")
@@ -30,7 +30,6 @@ public class ProductController {
         List<Product> products = this.productServices.GetAllProduct();
         return ResponseEntity.ok(products);
     }
-
 
     // GET , Url : /products/{id}               getSingleProduct
     @GetMapping("/{id}")
@@ -52,8 +51,6 @@ public class ProductController {
         }
     }
 
-
-
     //POST , Url : /products/    // for fakestoreproductServices
     /*@PostMapping()
     public ResponseEntity<Product> addNewProduct(@RequestBody IClientProductDto productDto) {
@@ -62,13 +59,13 @@ public class ProductController {
 
         return responseEntity;
     }*/
+
     // GET , Url : /products?limit={limit}    getProductByLimit
     @GetMapping(params = "limit")
     public ResponseEntity<List<Product>> getProductByLimit(@RequestParam("limit") int limit) {
         List<Product> products = this.productServices.GetProductByLimit(limit);
         return ResponseEntity.ok(products);
     }
-
 
     // GET , Url : /products?sort=desc    getAllProductsInDescOrder
     @GetMapping(params = "sort")
@@ -81,9 +78,6 @@ public class ProductController {
         }
     }
 
-
-
-
     //POST , Url : /products/              addNewProduct
     @PostMapping("/")
     public ResponseEntity<Product> addNewProduct(@RequestBody ProductDto productDto) {
@@ -93,7 +87,6 @@ public class ProductController {
 
         return responseEntity;
     }
-
 
     //PUT , Url : /products/{productId}
     @PutMapping("/{productId}")
@@ -126,6 +119,4 @@ public class ProductController {
         product.setImageUrl(productDto.getImage());
         return product;
     }
-
-
 }
