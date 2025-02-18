@@ -46,7 +46,7 @@ class ProductRepoTest {
 
     @Test
     @Transactional
-  //  @Rollback(value = false)
+  //  @Rollback(value = false) // to let the data save in the database
     void savePorductsAndsCategories1() {
         Categories categories = new Categories();
        Categories categories1= categoryRepo.findById(1L);
